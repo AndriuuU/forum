@@ -8,7 +8,7 @@
     	@forelse($forums as $forum)
 	        <div class="panel panel-default">
 	            <div class="panel-heading">
-	            	<a href="forums/{{ $forum->id }}"> {{ $forum->name }} </a>
+	            	<a href="forum/{{ $forum->id }}"> {{ $forum->name }} </a>
 	            </div>
 
 	            <div class="panel-body">
@@ -20,10 +20,12 @@
 	        {{ __("No hay ningún foro en este momento") }}
 	    </div>
     	@endforelse
-        </div>
-        @if($forums->count())
+
+		@if($forums->count())
                 {{ $forums->links() }}
         @endif
 
+        </div>
+        
     </div>
 @endsection

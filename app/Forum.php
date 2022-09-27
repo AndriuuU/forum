@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Forum extends Model
 {
-    protected $table = 'prueba2_modelos';
+    protected $table = 'forums';
 
 
     protected $fillable = ['id','name','description']; // campos rellenables
 
-
+    public function posts(){
+    	return $this->hasMany(Post::class);
+    }
 }

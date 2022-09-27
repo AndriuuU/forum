@@ -15,4 +15,12 @@ class ForumController extends Controller
 
         return view('forums/index', compact('forums'));
     }
+    //php artisan make:model Post -mcf
+
+    public function show(Forum $forum)  // Con esto estamos inyectando el Foro completo
+    {
+        dd($forum);
+    }
 }
+
+
