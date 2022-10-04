@@ -8,10 +8,16 @@ class Forum extends Model
 {
     protected $table = 'forums';
 
+    protected $fillable = [
+        'name', 'description',
+    ];
 
-    protected $fillable = ['id','name','description']; // campos rellenables
-
-    public function posts(){
+ public function posts(){
     	return $this->hasMany(Post::class);
     }
+
+    public function replies(){
+    	return $this->hasManyThrough(Reply::class, Post::class);
+    }   
+
 }

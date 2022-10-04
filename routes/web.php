@@ -13,6 +13,8 @@
 
 Route::get('/forums/{forum}', 'ForumController@show');
 
+Route::get('/posts/{post}', 'PostController@show');
+
 Route::get('/', function () {
     return view('welcome');
 });

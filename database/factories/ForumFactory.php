@@ -10,4 +10,6 @@ $factory->define(Forum::class, function (Faker $faker) {
         'name' => $faker -> sentence,
         'description' => $faker->paragraph,
     ];
+
+    //$forums = Forum::with(['replies', 'posts'])->paginate(5);
 });
