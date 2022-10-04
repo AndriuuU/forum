@@ -10,8 +10,8 @@ use App\Forum;
 class ForumController extends Controller
 {
     public function index (){
-       $forums = Forum::latest()->paginate(5); //Crear paginacion 
-       
+      //$forums = Forum::latest()->paginate(5); //Crear paginacion 
+       $forums = Forum::with(['replies', 'posts'])->paginate(2);
       //$forums = Forum::with(['posts'])->paginate(5);
        //dd($forums);
        
@@ -22,7 +22,7 @@ class ForumController extends Controller
 
     public function show(Forum $forum)  // Con esto estamos inyectando el Foro completo
     {
-        //$forums = Forum::with(['replies', 'posts'])->paginate(5);
+        //$forums = Forum::with(['replies', 'posts'])->paginate(2);
         $posts = $forum->posts()->with(['owner'])->paginate(10);
         //$forums = Forum::with(['replies', 'posts'])->paginate(5);
        
