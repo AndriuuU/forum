@@ -29,4 +29,8 @@ class Reply extends Model
     public function getForumAttribute() {
     	return $this->post->forum;
     }
+    public function replies(){
+    	return $this->hasManyThrough(Reply::class, Post::class);
+    }
+
 }

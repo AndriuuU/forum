@@ -8,7 +8,7 @@
     	@forelse($forums as $forum)
 	        <div class="panel panel-default">
 	            <div class="panel-heading panel-heading-forum">
-	            	<a href="forum/{{ $forum->id }}"> {{ $forum->name }} </a>
+	            	<a href="forum/{{$forum->id}}"> {{ $forum->name }} </a>
 					<span class="pull-right">
 						{{ __("Posts") }}: {{ $forum->posts->count() }}
 						{{ __("Respuestas") }}: {{ $forum->replies->count() }}	
@@ -25,14 +25,13 @@
 	        {{ __("No hay ningún foro en este momento") }}
 	    </div>
     	@endforelse
-
 		@if($forums->count())
                 {{ $forums->links() }}
-				
         @endif
+
 		<form method="POST" action="forums">
-	{{ csrf_field() }}
-	<div class="form-group">
+			{{ csrf_field() }}
+		<div class="form-group">
 		<label for="name" class="col-md-12 control-label">
 			{{ __("Nombre") }}
 		</label>

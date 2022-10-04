@@ -15,22 +15,11 @@ Route::get('/forums/{forum}', 'ForumController@show');
 
 Route::get('/posts/{post}', 'PostController@show');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::post('/forums', 'ForumController@store');
 
 Route::get('/','ForumController@index');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 

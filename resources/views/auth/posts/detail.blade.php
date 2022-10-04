@@ -4,27 +4,25 @@
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-    <h1 class="text-center text-muted">
-{{ __("Posts del foro :name", ['name' => $forum->name]) }}
-</h1>
-
-<a href="/forum/public" class="btn btn-info pull-right">
-{{ __("Volver al listado de los foros") }}
-</a>
-
-<div class="clearfix"></div>
-
-<br/>
-
+    	<h1 class="text-center text-mute"> {{ __("Respuestas al debate :name", ['name' => $post->title]) }} </h1>
+		
+		<h4>{{ __("Autor del debate") }}: {{ $post->owner->name }}</h4>
+	
+	<a href="../forums/{{ $post->forum->id }}" class="btn btn-info pull-right">
+		{{ __ ("Volver al foro :name",  ['name' => $post->forum->name]) }}
+		</a>
+	
+		<div class="clearfix"></div>
+	
+		<br/>
+	
     	@forelse($replies as $reply)
 
-	        <div class="panel panel-default panel-heading-reply">
-	            <div class="panel-heading">
+	        <div class="panel panel-default">
+	            <div class="panel-heading panel-heading-reply">
 	            	<p>{{ __("Respuesta de") }}: {{ $reply->autor->name }}</p>
 	            </div>
-                <h4>{{ __("Autor del debate") }}: {{ $post->owner->name }}</h4>
-	
-    
+
 	            <div class="panel-body">
 	                {{ $reply->reply }}
 	            </div>
