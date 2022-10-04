@@ -12,11 +12,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-       // factory(User::class)->create(['email' => 'andriuu@gmail.com'];
+        factory(\App\User::class)->create(['email' => 'andriuu@gmail.com']);
         factory(\App\User::class, 50)->create();
         factory(\App\Forum::class, 20)->create();
-        factory(\App\Post::class, 100)->create();
-        
+        factory(\App\Post::class, 50)->create();
+        factory(\App\Reply::class, 100)->create();
+    
+    
 
+    //    factory(\App\User::class, 50)->create();
+    //    factory(\App\Forum::class, 20)->create();
+    //    factory(\App\Post::class, 50)->create();
+   
     }
 }
