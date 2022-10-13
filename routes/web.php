@@ -15,8 +15,11 @@ Route::get('/forums/{forum}', 'ForumController@show');
 
 Route::get('/posts/{post}', 'PostController@show');
 
-
 Route::post('/forums', 'ForumController@store');
+
+Route::post('/posts', 'PostController@store');
+
+Route::post('/replies', 'ReplyController@store');
 
 Route::get('/','ForumController@index');
 

@@ -23,7 +23,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container" >
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -75,10 +75,17 @@
         </nav>
 
         <main class="py-4">
-            <div class="container" style="padding-bottom: 100px">>
+            <div class="container" style="padding-bottom: 100px">
+            @if(session('message'))
+                <div class="alert alert-{{ session('message')[0] }}">
+                    {{ session('message')[1] }}
+                </div>
+            @endif
                 @yield('content')
             </div>
         </main>
+       
+
     </div>
 </body>
 </html>

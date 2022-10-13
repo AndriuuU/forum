@@ -8,7 +8,8 @@
     	@forelse($forums as $forum)
 	        <div class="panel panel-default">
 	            <div class="panel-heading panel-heading-forum">
-	            	<a href="forum/{{$forum->id}}"> {{ $forum->name }} </a>
+	            	<a href="forums/{{$forum->id}}"> {{ $forum->Name }} </a>
+					
 					<span class="pull-right">
 						{{ __("Posts") }}: {{ $forum->posts->count() }}
 						{{ __("Respuestas") }}: {{ $forum->replies->count() }}	
@@ -28,6 +29,13 @@
 		@if($forums->count())
                 {{ $forums->links() }}
         @endif
+		
+		<h2>{{ __("Añadir un nuevo foro") }}</h2>
+
+		<hr />
+
+		@include('partials.errors')
+
 
 		<form method="POST" action="forums">
 			{{ csrf_field() }}
